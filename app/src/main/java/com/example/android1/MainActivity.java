@@ -1,7 +1,6 @@
 package com.example.android1;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 
 //CTRL + ALT + O - удаление лишних import
