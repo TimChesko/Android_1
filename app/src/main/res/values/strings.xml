@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">Android 1</string>
+    <string name="edit_text">Напиши что-нибудь</string>
+    <string name="button_text">Кнопка</string>
+    <string name="default_text">Просто текст</string>
+    <string name="name_text">Имя</string>
+    <string name="phone_text">Номер телефона</string>
+    <string name="password_text">Пароль</string>
+    <string name="email_text">Email</string>
+    <string name="data_text">Дата</string>
+    <string name="nothing_text">Ничего</string>
 </resources>
