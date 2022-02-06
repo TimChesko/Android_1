@@ -19,6 +19,6 @@
     <string name="cel">C</string>
     <string name="dote">.</string>
     <string name="procent">%</string>
-    <string name="calculator">Калькулятор</string>
+    <string name="calculator">Введите первое число</string>
     <string name="example">50 \n 100</string>
 </resources>

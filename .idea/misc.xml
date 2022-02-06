@@ -4,7 +4,10 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/Timofey/AndroidStudioProjects/Android1/app/src/main/res/drawable/gradient.xml" value="0.2875" />
+        <entry key="..\:/Users/Timofey/AndroidStudioProjects/Android1/app/src/main/res/layout-land/activity_main_land.xml" value="0.2578125" />
         <entry key="..\:/Users/Timofey/AndroidStudioProjects/Android1/app/src/main/res/layout/activity_main.xml" value="0.33" />
+        <entry key="..\:/Users/Timofey/AndroidStudioProjects/Android1/app/src/main/res/layout/activity_main_horizontal.xml" value="0.1" />
+        <entry key="..\:/Users/Timofey/AndroidStudioProjects/Android1/app/src/main/res/layout/activity_main_land.xml" value="0.37083333333333335" />
         <entry key="..\:/Users/Timofey/AndroidStudioProjects/Android1/app/src/main/res/layout/activity_main_second.xml" value="0.33" />
         <entry key="..\:/Users/Timofey/AndroidStudioProjects/Android1/app/src/main/res/layout/buttons_layout.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Timofey/AndroidStudioProjects/Android1/app/src/main/res/layout/main.xml" value="0.36666666666666664" />
