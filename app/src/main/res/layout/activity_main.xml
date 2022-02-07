@@ -15,6 +15,7 @@
         android:autofillHints="numbers"
         android:hint="@string/setFirstNum"
         android:inputType="number"
+        android:textColor="@color/white"
         android:textColorHint="@color/white" />
     <include layout="@layout/buttons_layout"/>
 </LinearLayout>
