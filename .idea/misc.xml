@@ -3,7 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Timofey/AndroidStudioProjects/Android1/app/src/main/res/drawable/gradient-night.xml" value="0.165" />
         <entry key="..\:/Users/Timofey/AndroidStudioProjects/Android1/app/src/main/res/drawable/gradient.xml" value="0.2875" />
+        <entry key="..\:/Users/Timofey/AndroidStudioProjects/Android1/app/src/main/res/drawable/ic_launcher_background.xml" value="0.165" />
         <entry key="..\:/Users/Timofey/AndroidStudioProjects/Android1/app/src/main/res/layout-land/activity_main_land.xml" value="0.2578125" />
         <entry key="..\:/Users/Timofey/AndroidStudioProjects/Android1/app/src/main/res/layout/activity_main.xml" value="0.33" />
         <entry key="..\:/Users/Timofey/AndroidStudioProjects/Android1/app/src/main/res/layout/activity_main_horizontal.xml" value="0.1" />
