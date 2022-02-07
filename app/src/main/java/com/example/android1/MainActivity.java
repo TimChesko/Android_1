@@ -194,9 +194,11 @@ public class MainActivity extends AppCompatActivity {
                         saveText = saveText.substring(0, saveText.length() - 1);
                         editText.setText(saveText);
                     } catch (Exception ex){}
+                    break;
                 case R.id.dote:
                     saveText = saveText+".";
                     editText.setText(saveText);
+                    break;
             }
         }
 
