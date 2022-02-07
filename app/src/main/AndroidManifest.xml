@@ -19,7 +19,6 @@
             </intent-filter>
         </activity>
     </application>
-
 </manifest>
 <!--allowBackUp - резервное копирование-->
 <!--supportsRtl - поддержка написания справа налево-->

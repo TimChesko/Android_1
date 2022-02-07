@@ -37,10 +37,8 @@ public class MainActivity extends AppCompatActivity {
     //editText - окно ввода
     EditText editText;
     String saveText = "";
-    Double num1;
-    String make;
-    //TAG
-    static String TAG = "editText";
+    Double num1 = 0.0;
+    String make = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         initView();
         initListner();
+        setContent();
     }
 
     private void initListner(){
@@ -185,7 +184,7 @@ public class MainActivity extends AppCompatActivity {
                 case R.id.delete:
                     saveText = editText.getText().toString();
                     try {
-                        saveText = saveText.substring(0,saveText.length()-1);
+                        saveText = saveText.substring(0, saveText.length() - 1);
                         editText.setText(saveText);
                     } catch (Exception ex){}
                 case R.id.dote:
@@ -221,7 +220,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
         outState.putString("saveText", saveText);
-        outState.putString("editText", editText.toString());
         outState.putString("make", make);
         outState.putDouble("num1", num1);
     }
@@ -230,9 +228,13 @@ public class MainActivity extends AppCompatActivity {
     //восстановили
     public void onRestoreInstanceState(Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
-        saveText = savedInstanceState.getString(saveText);
-        editText.setText(savedInstanceState.getString(String.valueOf(editText)));
-        make = savedInstanceState.getString(make);
-        num1 = savedInstanceState.getDouble(String.valueOf(num1));
+        saveText = savedInstanceState.getString("saveText");
+        make = savedInstanceState.getString("make");
+        num1 = savedInstanceState.getDouble("num1");
+        setContent();
+    }
+
+    private void setContent() {
+        editText.setText(saveText);
     }
 }
