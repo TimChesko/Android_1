@@ -4,8 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:gravity="center"
-    android:background="@drawable/gradient">
+    android:gravity="center">
 
     <EditText
         android:id="@+id/editText"
@@ -14,8 +13,8 @@
         android:layout_marginStart="@dimen/tenDp"
         android:layout_marginEnd="@dimen/tenDp"
         android:autofillHints="numbers"
-        android:hint="@string/calculator"
+        android:hint="@string/setFirstNum"
         android:inputType="number"
-        android:textColorHint="#FFFFFF" />
+        android:textColorHint="@color/white" />
     <include layout="@layout/buttons_layout"/>
 </LinearLayout>

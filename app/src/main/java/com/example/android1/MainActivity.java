@@ -1,5 +1,6 @@
 package com.example.android1;
 
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.view.View;
@@ -45,8 +46,14 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         initView();
+        typeFace();
         initListner();
         setContent();
+    }
+
+    private void typeFace() {
+        Typeface tf = Typeface.createFromAsset(getAssets(),"Source_Sans_Pro/SourceSansPro-Black.ttf");
+        editText.setTypeface(tf);
     }
 
     private void initListner(){
@@ -148,33 +155,33 @@ public class MainActivity extends AppCompatActivity {
                     make = "/";
                     saveText = "";
                     editText.setText("");
-                    editText.setHint("На какое число поделить ?");
+                    editText.setHint(R.string.divideText);
                     break;
                 case R.id.multiply:
                     num1 = Double.valueOf(saveText);
                     make = "*";
                     saveText = "";
                     editText.setText("");
-                    editText.setHint("На какое число умножить ?");
+                    editText.setHint(R.string.multiplyText);
                     break;
                 case R.id.minus:
                     num1 = Double.valueOf(saveText);
                     make = "-";
                     saveText = "";
                     editText.setText("");
-                    editText.setHint("Из какого числа вычесть ?");
+                    editText.setHint(R.string.minusText);
                     break;
                 case R.id.sum:
                     num1 = Double.valueOf(saveText);
                     make = "+";
                     saveText = "";
                     editText.setText("");
-                    editText.setHint("К какому числу прибавить ?");
+                    editText.setHint(R.string.plusText);
                     break;
                 case R.id.cel:
                     make = "";
                     saveText = "";
-                    editText.setText("");
+                    editText.setText(R.string.setFirstNum);
                     break;
                 case R.id.equal:
                     String res = compile(Double.valueOf(saveText), num1, make);

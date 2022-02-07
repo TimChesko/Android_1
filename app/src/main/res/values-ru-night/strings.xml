@@ -19,9 +19,9 @@
     <string name="cel">C</string>
     <string name="dote">.</string>
     <string name="procent">%</string>
-    <string name="setFirstNum">Enter the first number</string>
-    <string name="minusText">What number to subtract ?</string>
-    <string name="plusText">What number to add ?</string>
-    <string name="multiplyText">What number to multiply ?</string>
-    <string name="divideText">Divide by what number ?</string>
+    <string name="setFirstNum">Введите первое число</string>
+    <string name="minusText">Какое число вычесть ?</string>
+    <string name="plusText">Какое число прибавить ?</string>
+    <string name="multiplyText">На какое число умножить ?</string>
+    <string name="divideText">На какое число поделить ?</string>
 </resources>
