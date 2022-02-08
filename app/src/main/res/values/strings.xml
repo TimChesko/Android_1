@@ -24,4 +24,9 @@
     <string name="plusText">What number to add ?</string>
     <string name="multiplyText">What number to multiply ?</string>
     <string name="divideText">Divide by what number ?</string>
+    <string name="NightTheme">Темная тема</string>
+    <string name="LightTheme">Светлая тема</string>
+    <string name="ChooseTheme">Выберете тему:</string>
+    <string name="settings">Настройки</string>
+    <string name="Back">Вернуться</string>
 </resources>

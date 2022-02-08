@@ -1,5 +1,6 @@
 package com.example.android1;
 
+import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.Parcelable;
@@ -29,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
     Button divideB;
     Button multiplyB;
     Button minusB;
-    Button sumB ;
+    Button sumB;
     Button equal;
     Button dote;
     //delete
@@ -40,23 +41,24 @@ public class MainActivity extends AppCompatActivity {
     String saveText = "";
     Double num1 = 0.0;
     String make = "";
-
+    Button settings;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         initView();
         typeFace();
+
         initListner();
         setContent();
     }
 
     private void typeFace() {
-        Typeface tf = Typeface.createFromAsset(getAssets(),"Source_Sans_Pro/SourceSansPro-Black.ttf");
+        Typeface tf = Typeface.createFromAsset(getAssets(), "Source_Sans_Pro/SourceSansPro-Black.ttf");
         editText.setTypeface(tf);
     }
 
-    private void initListner(){
+    private void initListner() {
         oneB.setOnClickListener(listener);
         twoB.setOnClickListener(listener);
         threeB.setOnClickListener(listener);
@@ -76,6 +78,7 @@ public class MainActivity extends AppCompatActivity {
         celB.setOnClickListener(listener);
         equal.setOnClickListener(listener);
         dote.setOnClickListener(listener);
+        settings.setOnClickListener(listener);
     }
 
     private void initView() {
@@ -99,50 +102,51 @@ public class MainActivity extends AppCompatActivity {
         editText = findViewById(R.id.editText);
         equal = findViewById(R.id.equal);
         dote = findViewById(R.id.dote);
+        settings = findViewById(R.id.settingsButton);
     }
 
     View.OnClickListener listener = new View.OnClickListener() {
         @Override
-        public void onClick(View v){
-            switch(v.getId()){
+        public void onClick(View v) {
+            switch (v.getId()) {
                 case R.id.one:
-                    saveText = saveText+"1";
+                    saveText = saveText + "1";
                     editText.setText(saveText);
                     break;
                 case R.id.two:
-                    saveText = saveText+"2";
+                    saveText = saveText + "2";
                     editText.setText(saveText);
                     break;
                 case R.id.three:
-                    saveText = saveText+"3";
+                    saveText = saveText + "3";
                     editText.setText(saveText);
                     break;
                 case R.id.four:
-                    saveText = saveText+"4";
+                    saveText = saveText + "4";
                     editText.setText(saveText);
                     break;
                 case R.id.five:
-                    saveText = saveText+"5";
+                    saveText = saveText + "5";
                     editText.setText(saveText);
                     break;
                 case R.id.six:
-                    saveText = saveText+"6";
+                    saveText = saveText + "6";
                     editText.setText(saveText);
                     break;
                 case R.id.seven:
-                    saveText = saveText+"7";
+                    saveText = saveText + "7";
                     editText.setText(saveText);
                     break;
                 case R.id.eight:
-                    saveText = saveText+"8";
+                    saveText = saveText + "8";
                     editText.setText(saveText);
                     break;
                 case R.id.nine:
-                    saveText = saveText+"9";
+                    saveText = saveText + "9";
                     editText.setText(saveText);
                     break;
                 case R.id.zero:
-                    saveText = saveText+"0";
+                    saveText = saveText + "0";
                     editText.setText(saveText);
                     break;
                 case R.id.procent:
@@ -193,18 +197,23 @@ public class MainActivity extends AppCompatActivity {
                     try {
                         saveText = saveText.substring(0, saveText.length() - 1);
                         editText.setText(saveText);
-                    } catch (Exception ex){}
+                    } catch (Exception ex) {
+                    }
                     break;
                 case R.id.dote:
-                    saveText = saveText+".";
+                    saveText = saveText + ".";
                     editText.setText(saveText);
+                    break;
+                case R.id.settingsButton:
+                    Intent i = new Intent(MainActivity.this,SettingsActivity.class);
+                    startActivity(i);
                     break;
             }
         }
 
         private String compile(Double valueOf, Double num1, String make) {
             double res = 0;
-            switch(make){
+            switch (make) {
                 case "+":
                     res = valueOf + num1;
                     break;
