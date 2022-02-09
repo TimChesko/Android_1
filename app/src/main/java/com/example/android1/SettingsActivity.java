@@ -3,6 +3,7 @@ package com.example.android1;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.RadioButton;
 
@@ -21,16 +22,21 @@ public class SettingsActivity extends AppCompatActivity implements View.OnClickL
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        i = new Intent(SettingsActivity.this, MainActivity.class);
         setTheme(getRealId(getCurrentTheme()));
         setContentView(R.layout.settings_activity);
         initView();
+    }
+
+    private void saveTheme(int theme) {
+        i.putExtra("KEY_THEME",theme);
+        Log.d("myLogs", theme+" - значение theme");
     }
 
     public void initView() {
         (findViewById(R.id.nightTheme)).setOnClickListener(this);
         (findViewById(R.id.lightTheme)).setOnClickListener(this);
         (findViewById(R.id.back)).setOnClickListener(this);
-        i = new Intent(SettingsActivity.this, MainActivity.class);
         switch (getCurrentTheme()) {
             case 1:
                 ((RadioButton) findViewById(R.id.nightTheme)).setChecked(true);
@@ -46,9 +52,11 @@ public class SettingsActivity extends AppCompatActivity implements View.OnClickL
         switch (view.getId()) {
             case R.id.nightTheme:
                 setCurrentTheme(NightTheme);
+                saveTheme(NightTheme);
                 break;
             case R.id.lightTheme:
                 setCurrentTheme(LightTheme);
+                saveTheme(LightTheme);
                 break;
             case R.id.back:
                 startActivity(i);
@@ -72,10 +80,8 @@ public class SettingsActivity extends AppCompatActivity implements View.OnClickL
     private int getRealId(int currentTheme) {
         switch (currentTheme) {
             case NightTheme:
-                i.putExtra(KEY_CURRENT_THEME, R.style.nightTheme);
                 return R.style.nightTheme;
             case LightTheme:
-                i.putExtra(KEY_CURRENT_THEME, R.style.lightTheme);
                 return R.style.lightTheme;
             default:
                 return R.style.Theme_Android1;

@@ -45,17 +45,19 @@ public class MainActivity extends AppCompatActivity {
     String make = "";
     Button settings;
     Intent i;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setTheme(i.getIntExtra(KEY_CURRENT_THEME, R.style.Theme_Android1));
+        i = new Intent(MainActivity.this, SettingsActivity.class);
+        int value = i.getIntExtra("KEY_THEME",0);
+        Log.d("myLogs",value + " - значение getIntExtra");
         setContentView(R.layout.activity_main);
         initView();
         typeFace();
         initListner();
         setContent();
     }
+
 
     private void typeFace() {
         Typeface tf = Typeface.createFromAsset(getAssets(), "Source_Sans_Pro/SourceSansPro-Black.ttf");
@@ -107,7 +109,6 @@ public class MainActivity extends AppCompatActivity {
         equal = findViewById(R.id.equal);
         dote = findViewById(R.id.dote);
         settings = findViewById(R.id.settingsButton);
-        i = new Intent(MainActivity.this, SettingsActivity.class);
     }
 
     View.OnClickListener listener = new View.OnClickListener() {
