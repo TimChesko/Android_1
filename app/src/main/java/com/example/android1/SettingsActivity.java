@@ -1,54 +1,84 @@
 package com.example.android1;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
-import android.widget.RadioGroup;
+import android.widget.RadioButton;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 public class SettingsActivity extends AppCompatActivity implements View.OnClickListener {
 
+    static final String KEY_SP = "sp";
+    static final String KEY_CURRENT_THEME = "current_theme";
+
+    static final int NightTheme = 1;
+    static final int LightTheme = 2;
+
+    Intent i;
+
     @Override
-    public void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setTheme(getRealId(getCurrentTheme()));
         setContentView(R.layout.settings_activity);
         initView();
-        radioGroup();
     }
 
-    private void initView(){
-        Button back = (Button) findViewById(R.id.back);
-        back.setOnClickListener(this);
-    }
-
-    private void radioGroup() {
-        RadioGroup radioGroup = (RadioGroup) findViewById(R.id.radio);
-        radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-
-            @Override
-            public void onCheckedChanged(RadioGroup group, int checkedId) {
-                switch (checkedId) {
-                    case R.id.nightTheme:
-                        setTheme(R.style.Theme_Android1_Dark);
-                        break;
-                    case R.id.lightTheme:
-                        setTheme(R.style.Theme_Android1);
-                        break;
-                    default:
-                        break;
-                }
-            }
-        });
+    public void initView() {
+        (findViewById(R.id.nightTheme)).setOnClickListener(this);
+        (findViewById(R.id.lightTheme)).setOnClickListener(this);
+        (findViewById(R.id.back)).setOnClickListener(this);
+        i = new Intent(SettingsActivity.this, MainActivity.class);
+        switch (getCurrentTheme()) {
+            case 1:
+                ((RadioButton) findViewById(R.id.nightTheme)).setChecked(true);
+                break;
+            case 2:
+                ((RadioButton) findViewById(R.id.lightTheme)).setChecked(true);
+                break;
+        }
     }
 
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
+            case R.id.nightTheme:
+                setCurrentTheme(NightTheme);
+                break;
+            case R.id.lightTheme:
+                setCurrentTheme(LightTheme);
+                break;
             case R.id.back:
-                Intent i = new Intent(SettingsActivity.this, MainActivity.class);
                 startActivity(i);
+                break;
+        }
+        recreate();
+    }
+
+    private void setCurrentTheme(int currentTheme) {
+        SharedPreferences sharedPreferences = getSharedPreferences(KEY_SP, MODE_PRIVATE);//SharedPreferences - хранение настроек в ОЗУ // MODE_PRIVATE - настроки только для этого приложения
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putInt(KEY_CURRENT_THEME, currentTheme);
+        editor.apply();
+    }
+
+    private int getCurrentTheme() {
+        SharedPreferences sharedPreferences = getSharedPreferences(KEY_SP, MODE_PRIVATE);//SharedPreferences - хранение настроек в ОЗУ // MODE_PRIVATE - настроки только для этого приложения
+        return sharedPreferences.getInt(KEY_CURRENT_THEME, -1);
+    }
+
+    private int getRealId(int currentTheme) {
+        switch (currentTheme) {
+            case NightTheme:
+                i.putExtra(KEY_CURRENT_THEME, R.style.nightTheme);
+                return R.style.nightTheme;
+            case LightTheme:
+                i.putExtra(KEY_CURRENT_THEME, R.style.lightTheme);
+                return R.style.lightTheme;
+            default:
+                return R.style.Theme_Android1;
         }
     }
 }

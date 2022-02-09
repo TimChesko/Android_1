@@ -1,9 +1,11 @@
 package com.example.android1;
 
+import static com.example.android1.SettingsActivity.KEY_CURRENT_THEME;
+
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
-import android.os.Parcelable;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -42,13 +44,20 @@ public class MainActivity extends AppCompatActivity {
     Double num1 = 0.0;
     String make = "";
     Button settings;
+    Intent i;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Bundle extras = getIntent().getExtras();
+        try{
+            setTheme(extras.getInt("current_theme"));
+        } catch(Exception ex){
+            setTheme(R.style.Theme_Android1);
+        }
         setContentView(R.layout.activity_main);
         initView();
         typeFace();
-
         initListner();
         setContent();
     }
@@ -103,6 +112,7 @@ public class MainActivity extends AppCompatActivity {
         equal = findViewById(R.id.equal);
         dote = findViewById(R.id.dote);
         settings = findViewById(R.id.settingsButton);
+        i = new Intent(MainActivity.this, SettingsActivity.class);
     }
 
     View.OnClickListener listener = new View.OnClickListener() {
@@ -205,7 +215,6 @@ public class MainActivity extends AppCompatActivity {
                     editText.setText(saveText);
                     break;
                 case R.id.settingsButton:
-                    Intent i = new Intent(MainActivity.this,SettingsActivity.class);
                     startActivity(i);
                     break;
             }
