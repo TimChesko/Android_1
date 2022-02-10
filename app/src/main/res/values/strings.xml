@@ -29,4 +29,5 @@
     <string name="ChooseTheme">Выберете тему:</string>
     <string name="settings">Настройки</string>
     <string name="Back">Вернуться</string>
+    <string name="systemTheme">Системная</string>
 </resources>

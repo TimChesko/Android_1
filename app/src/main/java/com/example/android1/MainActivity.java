@@ -5,7 +5,6 @@ import static com.example.android1.SettingsActivity.KEY_CURRENT_THEME;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -44,18 +43,30 @@ public class MainActivity extends AppCompatActivity {
     Double num1 = 0.0;
     String make = "";
     Button settings;
-    Intent i;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        i = new Intent(MainActivity.this, SettingsActivity.class);
-        int value = i.getIntExtra("KEY_THEME",0);
-        Log.d("myLogs",value + " - значение getIntExtra");
+        Intent intent = getIntent();
+        currentTheme(intent);
         setContentView(R.layout.activity_main);
         initView();
         typeFace();
         initListner();
         setContent();
+    }
+
+    private void currentTheme(Intent intent) {
+        String currentTheme = intent.getStringExtra(KEY_CURRENT_THEME);
+        if (currentTheme != null) {
+            if (currentTheme.equals("1")) {
+                setTheme(R.style.Theme_Android1);
+            } else if (currentTheme.equals("2")) {
+                setTheme(R.style.nightTheme);
+            } else if (currentTheme.equals("3")) {
+                setTheme(R.style.lightTheme);
+            }
+        }
     }
 
 
@@ -211,6 +222,7 @@ public class MainActivity extends AppCompatActivity {
                     editText.setText(saveText);
                     break;
                 case R.id.settingsButton:
+                    Intent i = new Intent(MainActivity.this, SettingsActivity.class);
                     startActivity(i);
                     break;
             }

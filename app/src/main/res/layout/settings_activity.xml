@@ -18,6 +18,14 @@
         android:layout_height="wrap_content">
 
         <RadioButton
+            android:id="@+id/systemTheme"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/systemTheme"
+            android:textColor="@color/white"
+            android:textSize="@dimen/defoultTextSize"/>
+
+        <RadioButton
             android:id="@+id/nightTheme"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
