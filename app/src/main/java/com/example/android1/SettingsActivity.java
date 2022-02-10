@@ -26,13 +26,8 @@ public class SettingsActivity extends AppCompatActivity implements View.OnClickL
         super.onCreate(savedInstanceState);
         settingsIntent = new Intent(SettingsActivity.this, MainActivity.class);
         setTheme(getRealId(getCurrentTheme()));
-        saveTheme(getCurrentTheme());
         setContentView(R.layout.settings_activity);
         initView();
-    }
-
-    private void saveTheme(int theme) {
-        settingsIntent.putExtra(KEY_CURRENT_THEME,Integer.toString(theme));
     }
 
     public void initView() {

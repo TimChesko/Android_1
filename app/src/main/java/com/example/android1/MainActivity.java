@@ -1,10 +1,13 @@
 package com.example.android1;
 
 import static com.example.android1.SettingsActivity.KEY_CURRENT_THEME;
+import static com.example.android1.SettingsActivity.KEY_SP;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -47,8 +50,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Intent intent = getIntent();
-        currentTheme(intent);
+        useCurrentTheme(getCurrentTheme());
         setContentView(R.layout.activity_main);
         initView();
         typeFace();
@@ -56,16 +58,19 @@ public class MainActivity extends AppCompatActivity {
         setContent();
     }
 
-    private void currentTheme(Intent intent) {
-        String currentTheme = intent.getStringExtra(KEY_CURRENT_THEME);
-        if (currentTheme != null) {
-            if (currentTheme.equals("1")) {
-                setTheme(R.style.Theme_Android1);
-            } else if (currentTheme.equals("2")) {
-                setTheme(R.style.nightTheme);
-            } else if (currentTheme.equals("3")) {
-                setTheme(R.style.lightTheme);
-            }
+    private int getCurrentTheme() {
+        SharedPreferences sharedPreferences = getSharedPreferences(KEY_SP, MODE_PRIVATE);//SharedPreferences - хранение настроек в ОЗУ // MODE_PRIVATE - настроки только для этого приложения
+        Log.d("myLogs", sharedPreferences.getInt(KEY_CURRENT_THEME, -1)+"");
+        return sharedPreferences.getInt(KEY_CURRENT_THEME, -1);
+    }
+
+    private void useCurrentTheme(int currentTheme) {
+        if (currentTheme == SettingsActivity.SystemTheme) {
+            setTheme(R.style.Theme_Android1);
+        } else if (currentTheme == SettingsActivity.NightTheme) {
+            setTheme(R.style.nightTheme);
+        } else if (currentTheme == SettingsActivity.LightTheme) {
+            setTheme(R.style.lightTheme);
         }
     }
 
