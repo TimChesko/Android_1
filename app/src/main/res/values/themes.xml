@@ -5,21 +5,6 @@
         <item name="android:colorSecondary">@color/secondaryColor</item>
         <item name="android:textColorPrimary">@color/primaryTextColor</item>
         <item name="android:textColorSecondary">@color/secondaryTextColor</item>
-        <item name="android:background">@drawable/gradient</item>
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
-    </style>
-    
-    <style name="nightTheme" parent="Theme.Android1">
-        <item name="colorPrimary">@color/primaryDarkColor</item>
-        <item name="android:colorSecondary">@color/secondaryDarkColor</item>
-        <item name="android:textColorPrimary">@color/primaryTextColor</item>
-        <item name="android:textColorSecondary">@color/secondaryTextColor</item>
-    </style>
-
-    <style name="lightTheme" parent="Theme.Android1">
-        <item name="colorPrimary">@color/primaryLightColor</item>
-        <item name="android:colorSecondary">@color/secondaryLightColor</item>
-        <item name="android:textColorPrimary">@color/primaryTextColor</item>
-        <item name="android:textColorSecondary">@color/secondaryTextColor</item>
     </style>
 </resources>

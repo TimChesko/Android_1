@@ -6,22 +6,4 @@
     android:orientation="vertical"
     android:gravity="center">
 
-    <EditText
-        android:id="@+id/editText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/tenDp"
-        android:layout_marginEnd="@dimen/tenDp"
-        android:autofillHints="numbers"
-        android:hint="@string/setFirstNum"
-        android:inputType="number"
-        android:textColor="@color/white"
-        android:textColorHint="@color/white" />
-    <include layout="@layout/buttons_layout"/>
-    <Button
-        android:id="@+id/settingsButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/settings"
-        android:textColor="@color/white"/>
 </LinearLayout>
