@@ -1,9 +1,9 @@
 package com.example.android1;
 
-import android.content.res.Configuration;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 
 import com.example.android1.fragment.ViewAllNotes;
 import com.example.android1.fragment.ViewChosenNote;
@@ -15,16 +15,24 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        getSupportFragmentManager()
-                .beginTransaction()
-                .replace(R.id.fragment_container_left, ViewAllNotes.newInstance())
-                .commit();
-        if(getResources().getConfiguration().orientation== Configuration.ORIENTATION_LANDSCAPE){
+        if (savedInstanceState == null) {
             getSupportFragmentManager()
                     .beginTransaction()
-                    .replace(R.id.fragment_container_right, ViewChosenNote.newInstance())
+                    .replace(R.id.fragment_container_left, ViewAllNotes.newInstance())
                     .commit();
+        }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        // ищем фрагмент, который сидит в контейнере R.id.cities_container
+        Fragment backStackFragment = getSupportFragmentManager()
+                .findFragmentById(R.id.fragment_container_left);
+        // если такой есть, и он является CoatOfArmsFragment
+        if (backStackFragment instanceof ViewChosenNote) {
+            //то сэмулируем нажатие кнопки Назад
+            onBackPressed();
         }
     }
 }

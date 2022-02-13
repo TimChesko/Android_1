@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="title_note">
+        <item>Магазин</item>
+        <item>Дз</item>
+        <item>Контакт друга</item>
+    </string-array>
+
+    <string-array name="into_note">
+        <item>Колбаса, хлеб, масло, сыр</item>
+        <item>Математика 101 номер, Русский 133 страница</item>
+        <item>Егор Птушкин – +7(999)876–50–44</item>
+    </string-array>
+
+    <string-array name="data_note">
+        <item>20.19.2022</item>
+        <item>21.18.2021</item>
+        <item>22.17.2020</item>
+    </string-array>
+</resources>
